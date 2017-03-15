@@ -1,0 +1,63 @@
+on early-init
+    start ueventd
+
+on init
+    loglevel 15
+
+    export PATH /sbin:/bin:/system/sbin:/system/bin:/system/xbin
+    export LD_LIBRARY_PATH /system/lib
+    export ANDROID_CACHE /cache
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+    export SD_EXT_DIRECTORY /sd-ext
+
+    mkdir /tmp
+    mkdir /boot
+    mkdir /recovery
+    mkdir /sdcard
+    mkdir /sd-ext
+    mkdir /datadata
+    mkdir /emmc
+    mkdir /system
+    mkdir /data
+    mkdir /cache
+    mkdir /efs
+    #mkdir /mnt/nvm
+    #mkdir /mnt/.lfs
+    #mkdir /marvell
+
+on fs
+#    mount vfat /dev/block/mmcblk0p1 /sdcard
+#    mount rfs /dev/block/stl20 /cache
+#    mount rfs /dev/block/stl16 /system
+#    mount rfs /dev/block/stl17 /data
+
+on post-fs
+    write /proc/sys/kernel/panic_on_oops 1
+    write /proc/sys/kernel/hung_task_timeout_secs 0
+    write /proc/cpu/alignment 4
+    write /proc/sys/kernel/sched_latency_ns 10000000
+    write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
+    write /proc/sys/kernel/sched_compat_yield 1
+    write /proc/sys/kernel/sched_child_runs_first 0
+
+on boot
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+
+service ueventd /sbin/ueventd
+    critical
+
+service recovery /sbin/recovery
+
+service adbd /sbin/adbd recovery
+
+on property:persist.service.adb.enable=1
+    start adbd
+
+on property:persist.service.adb.enable=0
+    stop adbd
