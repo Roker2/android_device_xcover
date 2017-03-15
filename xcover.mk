@@ -380,6 +380,7 @@ $(LOCAL_PATH)/system/usr/keylayout/libalsa-lib/libasound_module_pcm_vtrec.so:sys
 $(LOCAL_PATH)/system/usr/icu/icudt44l.dat:system/icu/icudt44l.dat \
 $(LOCAL_PATH)/system/usr/keychars/sec_touchscreen.kcm.bin:system/keychars/sec_touchscreen.kcm.bin \
 #display 320x480
-PRODUCT_AAPT_CONFIG :=mdpi
-PRODUCT_AAPT_PREF_CONFIG :=mdpi
-PRODUCT_CHARACTERISTICS :=phone
+#PRODUCT_AAPT_CONFIG :=mdpi
+#PRODUCT_AAPT_PREF_CONFIG :=mdpi
+#PRODUCT_CHARACTERISTICS :=phone
+$(call inherit-product-if-exists, vendor/samsung/xcover/xcover-vendor.mk)
