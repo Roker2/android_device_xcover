@@ -49,8 +49,8 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/xcover/recovery/recover
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/xcover/recovery/graphics.c
 #BOARD_USES_BML_OVER_MTD := true
 #BOARD_RECOVERY_HANDLES_MOUNT := true
-TARGET_RECOVERY_INITRC := device/samsung/xcover/recovery/init.rc
-TARGET_RECOVERY_FSTAB := device/samsung/xcover/recovery/recovery.fstab
+TARGET_RECOVERY_INITRC := device/samsung/xcover/init.rc
+TARGET_RECOVERY_FSTAB := device/samsung/xcover/recovery.fstab
 
 # 3D
 BOARD_EGL_CFG := device/samsung/xcover/egl.cfg
