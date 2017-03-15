@@ -24,9 +24,6 @@ int device_handle_key(int key_code, int visible) {
                 return SELECT_ITEM;
 
             case 158:
-                if (!ui_root_menu) {
-                    return GO_BACK;
-                }            
                 if (!get_allow_toggle_display())
                     return GO_BACK;
         }
