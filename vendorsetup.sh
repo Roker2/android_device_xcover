@@ -1,0 +1,2 @@
+add_lunch_combo cyanogen_xcover-eng
+add_lunch_combo cyanogen_xcover-userdebug
