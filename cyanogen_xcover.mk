@@ -2,10 +2,10 @@
 PRODUCT_RELEASE_NAME := xcover
 
 # Inherit common CM stuff
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+$(call inherit-product, vendor/cyanogen/products/common.mk)
 
 # Inherit GSM stuff
-$(call inherit-product, vendor/cyanogen/config/gsm.mk)
+$(call inherit-product, vendor/cyanogen/products/gsm.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/xcover/full_xcover.mk)
