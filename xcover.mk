@@ -3,7 +3,7 @@ PRODUCT_BRAND :=samsung
 PRODUCT_DEVICE :=xcover
 PRODUCT_NAME :=xcover
 #my vendor
-LOCAL_PATH := vendor/samsung/xcover/system
+LOCAL_PATH := vendor/samsung/xcover/
 
 
 PRODUCT_COPY_FILES += \
