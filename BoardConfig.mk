@@ -49,8 +49,8 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/xcover/recovery/recover
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/xcover/recovery/graphics.c
 #BOARD_USES_BML_OVER_MTD := true
 #BOARD_RECOVERY_HANDLES_MOUNT := true
-TARGET_RECOVERY_INITRC := device/samsung/xcover/init.rc
-TARGET_RECOVERY_FSTAB := device/samsung/xcover/recovery.fstab
+TARGET_RECOVERY_INITRC := device/samsung/xcover/recovery/init.rc
+TARGET_RECOVERY_FSTAB := device/samsung/xcover/recovery/recovery.fstab
 
 # 3D
 BOARD_EGL_CFG := device/samsung/xcover/egl.cfg
@@ -61,7 +61,7 @@ BOARD_NAND_SPARE_SIZE := 128
 BOARD_KERNEL_CMDLINE := rdinit=/busybox/rdinit androidboot.console=ttyS0 console=ttyS0,115200 mem=240M@0x80000000 comm_v75 uart_dma vmalloc=0x18000000 reserve_pmem=0x2800000
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
-TARGET_PREBUILT_KERNEL := device/samsung/xcover/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/xcover/prebuilt/kernel
 #TARGET_KERNEL_CONFIG := alkon_03_defconfig
 #WPA_SUPPLICANT_VERSION := VER_0_6_X
 #BOARD_WPA_SUPPLICANT_DRIVER := WEXT
