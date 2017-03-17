@@ -1,0 +1,35 @@
+on early-init
+    start ueventd
+
+on init
+    export PATH /sbin:/system/bin
+    export ANDROID_ROOT /system
+
+    mkdir /system
+    mount rootfs rootfs / ro remount
+
+    write /proc/sys/kernel/panic_on_oops 1
+
+    mount rfs /dev/stl16 /system check=no
+    mount rfs /dev/stl16 /system ro remount
+
+on boot
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+
+service ueventd /sbin/ueventd
+    critical
+
+service adbd /sbin/adbd
+
+service playlpm /system/bin/playlpm
+    user root
+    oneshot
+
+service lpmkey /system/bin/charging_mode
+    user root
+    oneshot
+
