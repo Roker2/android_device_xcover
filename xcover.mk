@@ -17,6 +17,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 device/samsung/xcover/prebuilt/zinitix_touch.idc:system/usr/idc/zinitix_touch.idc
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	ro.cwm.enable_key_repeat=true \
+ro.cwm.repeatable_keys=114,115
 #display 320x480
 #PRODUCT_AAPT_CONFIG :=mdpi
 #PRODUCT_AAPT_PREF_CONFIG :=mdpi
