@@ -12,9 +12,6 @@ TARGET_ARCH_VARIANT := armv7-a
 #TARGET_ARCH_VARIANT_CPU := marvell-pj4 # in gcc 4.8
 TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 TARGET_CPU_SMP := false
-TARGET_KERNEL_SOURCE := kernel/samsung/xcover
-TARGET_KERNEL_CONFIG := defconfig_defconfig
-
 
 # Misc
 TARGET_NO_KERNEL := false
