@@ -217,28 +217,45 @@ on post-fs-data
     chown root log /data/dontpanic/apanic_threads
     chmod 0640 /data/dontpanic/apanic_threads
     write /proc/apanic_console 1
-
+    
+     # create basic filesystem structure
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
     mkdir /data/misc/bluetooth 0770 system system
     mkdir /data/misc/keystore 0700 keystore keystore
-    mkdir /data/misc/keychain 0771 system system
-    mkdir /data/misc/vpn 0770 system vpn
+    mkdir /data/misc/vpn 0770 system system
     mkdir /data/misc/systemkeys 0700 system system
-    mkdir /data/misc/wifi 0771 wifi wifi
-    mkdir /data/misc/wifi/sockets 0771 wifi wifi
-    mkdir /data/misc/dhcp 0771 dhcp dhcp
-    mkdir /data/misc/sensors 0775 system misc
-    mkdir /data/misc/organ 0775 media media
-    mkdir /data/misc/organ/sockets 0775 media media
-
+    mkdir /data/misc/vpn/profiles 0770 system system
+    # give system access to wpa_supplicant.conf for backup and restore
+    mkdir /data/misc/wifi 0770 wifi wifi
+#    mkdir /data/misc/radionv 0770 radio system
+#    chmod 0770 /data/misc/radionv
+#    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+#    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    chmod 0770 /data/misc/wifi
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+#    mkdir /data/misc/dhcp 0770 dhcp dhcp
+#    mkdir /data/misc/wifi/hostapd 0770 wifi wifi
+#    chown system system /sys/devices/platform/lcdc_s6d04h0a_qvga.0/lcd_power
+#    chmod 0660 /sys/devices/platform/lcdc_s6d04h0a_qvga.0/lcd_power
+#    chown system system /sys/devices/platform/msm_sdcc.1/detect_change
+#    chown system system /sys/devices/platform/msm_sdcc.2/detect_change
+#    chown system system /sys/devices/platform/msm_sdcc.3/detect_change
+#    chown system system /sys/devices/platform/msm_sdcc.4/detect_change
+#	chown system radio /sys/devices/platform/msm-battery/power_supply/battery/talk_gsm
+#	chown system radio /sys/devices/platform/msm-battery/power_supply/battery/talk_wcdma
+    mkdir /data/local 0771 shell shell
+    mkdir /data/local/tmp 0771 shell shell
+    mkdir /data/data 0771 system system
+    mkdir /data/app-private 0771 system system
+    mkdir /data/app 0771 system system
+    mkdir /data/property 0700 root root
+#    mkdir /data/radio 0770 radio radio
+     mkdir /data/misc/radio 0775 radio system
+# mkdir /data/misc/sensors 0777 system misc
     chown media media /data/misc/organ/sockets
     chmod 0775 /data/misc/organ/sockets
-
     mkdir /data/local 0751 root root
-    mkdir /data/local/tmp 0771 shell shell
-
     mkdir /data/data 0771 system system
     mkdir /data/app-private 0771 system system
     mkdir /data/app 0771 system system
