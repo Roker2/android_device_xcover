@@ -51,9 +51,3 @@ PRODUCT_PACKAGES += \
 	libcodecwmadec
 
 $(call inherit-product-if-exists, vendor/samsung/xcover/xcover-vendor.mk)
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/samsung/xcover/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
